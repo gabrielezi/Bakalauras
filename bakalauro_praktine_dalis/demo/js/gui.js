@@ -63,6 +63,8 @@ class Gui {
       this.id == 1 ? "block" : "none";
     document.getElementById("2").style.display =
       this.id == 2 ? "block" : "none";
+    document.getElementById("3").style.display =
+      this.id == 3 ? "block" : "none";
   }
 
   // remove animation
@@ -177,7 +179,7 @@ class GUI {
   ANSWER(back, clockwise) {
     return new Promise(async (resolve) => {
       // for each frame
-      console.log("kas vyksta");
+      await this.someTime();
 
       resolve();
     });
@@ -257,6 +259,16 @@ const guiData = {
       },
       rect: {
         x: 101,
+        y: 191,
+      },
+    },
+    {
+      pegman: {
+        x: -145,
+        y: 191,
+      },
+      rect: {
+        x: 51,
         y: 191,
       },
     },

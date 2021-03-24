@@ -157,6 +157,12 @@ Blockly.Gamepad.init({
     answer: {
       // the request will be { method: 'ANSWER', args: [] ]}
       method: "ANSWER",
+      args: [
+        {
+          field: "USERSANSWER",
+          get: parseInt,
+        },
+      ],
       json: {
         message0: "Answer is: %1",
         previousStatement: null,
@@ -207,20 +213,6 @@ const gamepad = new Blockly.Gamepad({
   gui = new Gui(),
   game = new Game(gui, gamepad);
 
-Blockly.JavaScript["answerBlock"] = function (block) {
-  let value = block.getFieldValue("answerValue");
-  answerBlockPut = true;
-
-  // let value = "'" + block.getFieldValue("answerValue") + "'";
-  // return "usersAnswer = " + value + ";\n";
-  return "answerEntered(  + " + value + ");\n";
-};
-
-function answerEntered(value) {
-  gamepad.utils.request(type, [], block.id);
-  yes(value);
-}
-
 // add debug options in the blocks context menu
 const populate_ = Blockly.ContextMenu.populate_;
 Blockly.ContextMenu.populate_ = function (options, rtl) {
@@ -259,4 +251,4 @@ Blockly.ContextMenu.populate_ = function (options, rtl) {
 };
 
 // load the level
-game.loadLevel(levels[id]);
+game.loadLevel(levels[0]);

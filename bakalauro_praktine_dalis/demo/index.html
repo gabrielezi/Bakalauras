@@ -24,8 +24,9 @@
         <span class="title">
             <div>
                 <a href="https://developers.google.com/blockly/">Blockly</a> 
-                <a style="font-size: 80%;">&</a> 
-                <a href="https://github.com/Paol-imi/blockly-gamepad">blockly-gamepad</a>: Maze
+                <a> Math Maze</a>
+                <!-- <a style="font-size: 80%;">&</a>  -->
+                <!-- <a href="https://github.com/Paol-imi/blockly-gamepad">blockly-gamepad</a>: Maze -->
             </div>
         </span>
         <vr></vr>
@@ -47,6 +48,7 @@
         <span class="switch_span">levels</span>
         <button class="button level" id="level_1">1</button>
         <button class="button level" id="level_2">2</button>
+        <button class="button level" id="level_3">3</button>
         <vr></vr>
         <button id="createMap" onclick="onButtonClick()">Create a map</button>
     </header>
@@ -69,15 +71,26 @@
             <!--game 2-->
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none" version="1.1" id="2" width="400px"
                 height="400px" viewBox="0 0 400 400">
-                <image xlink:href="images/maze2.png" class="maze" x="0" y="0" width="400" height="400"></image>
-                <image id="finish2" xlink:href="images/marker.png" height="34" width="20" x="215" y="46"></image>
-                <text id="task1" x="160" y="230" fill="red" font-weight="bold">23*4</text>
-                <text id="task1" x="258" y="130" fill="red" font-weight="bold">15*7</text>
+                <image xlink:href="images/1map.png" class="maze" x="0" y="0" width="400" height="400"></image>
+                <image id="finish2" xlink:href="images/marker.png" height="34" width="20" x="315" y="196"></image>
                 <clipPath id="2pegmanClipPath">
-                    <rect id="clipRect2" width="49" height="52" x="51" y="291"></rect>
+                    <rect id="clipRect2" width="49" height="52" x="101" y="191"></rect>
                 </clipPath>
                 <image id="pegman2" xlink:href="images/pegman.png" height="52" width="1029"
-                    clip-path="url(#2pegmanClipPath)" x="-145" y="291" transform="rotate(0, 0, 0)"></image>
+                    clip-path="url(#2pegmanClipPath)" x="-145" y="191" transform="rotate(0, 0, 0)"></image>
+            </svg>
+            <!--game 3-->
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none" version="1.1" id="3" width="400px"
+                height="400px" viewBox="0 0 400 400">
+                <image xlink:href="images/maze2.png" class="maze" x="0" y="0" width="400" height="400"></image>
+                <image id="finish3" xlink:href="images/marker.png" height="34" width="20" x="215" y="46"></image>
+                <text id="task1" x="160" y="230" fill="red" font-weight="bold">23*4</text>
+                <text id="task1" x="258" y="130" fill="red" font-weight="bold">15*7</text>
+                <clipPath id="3pegmanClipPath">
+                    <rect id="clipRect3" width="49" height="52" x="51" y="291"></rect>
+                </clipPath>
+                <image id="pegman3" xlink:href="images/pegman.png" height="52" width="1029"
+                    clip-path="url(#3pegmanClipPath)" x="-145" y="291" transform="rotate(0, 0, 0)"></image>
             </svg>
             <!--capacity div-->
             <div id="capacity" style="display: none;">You have <span id="capacityNumber">10</span> blocks left.</div>
@@ -128,7 +141,7 @@
 
     <script>
         function onButtonClick(){
-            window.location.href = "index2.html";
+            window.location.href = "mapCreation.html";
         }
     </script>
     <!--load global parameters-->
@@ -152,7 +165,8 @@
         // update parameters
         start = start != undefined
         categories = categories != undefined
-        id = (id == '1') ? 0 : 1
+        // id = (id == '1') ? 0 : 1
+        id = parseInt(id)
 
         // update the checkers
         if (start) document.getElementById('start_check').checked = true
@@ -174,6 +188,7 @@
         document.getElementById('load').onclick = () => game.loadCode() + console.clear()
         document.getElementById('level_1').onclick = () => game.loadLevel(levels[id = 0]) + console.clear()
         document.getElementById('level_2').onclick = () => game.loadLevel(levels[id = 1]) + console.clear()
+        document.getElementById('level_3').onclick = () => game.loadLevel(levels[id = 2]) + console.clear()
 
         document.getElementById('forward').onclick = () => gamepad.forward() + gui.removeAnimation()
         document.getElementById('backward').onclick = () => gamepad.backward() + gui.removeAnimation()
@@ -222,8 +237,8 @@
     </script>
    
     <!--github link-->
-    <script src="../libs/github/logo.js"></script>
-    <script>GitHub.inject(document.body)</script>
+    <!-- <script src="../libs/github/logo.js"></script>
+    <script>GitHub.inject(document.body)</script> -->
 </body>
 
 </html>

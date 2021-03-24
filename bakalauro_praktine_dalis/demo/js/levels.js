@@ -41,7 +41,39 @@ const levels = [
   {
     id: 2,
     // maximum blocks allowed
+    maxBlocks: 2,
+    game: {
+      // pegman data
+      pegman: {
+        direction: 1,
+        x: 0,
+        y: 0,
+      },
+      // marker data
+      marker: {
+        x: 5,
+        y: 0,
+      },
+      // game task
+      task: [],
+      // game path
+      path: [
+        // [x, y]
+        [0, 0],
+        [1, 0],
+        [2, 0],
+        [3, 0],
+        [4, 0],
+        [5, 0],
+      ],
+    },
+  },
+  // level 3
+  {
+    id: 3,
+    // game data
     maxBlocks: 14,
+
     //game data
     game: {
       // pegman data

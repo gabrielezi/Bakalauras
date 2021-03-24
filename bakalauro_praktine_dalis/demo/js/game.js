@@ -5,22 +5,15 @@
 //  - update the game (json)
 //  - manage the gui
 //  - load the levels
-let usersAnswer = null;
-let answerBlockPut = false;
-
-function yes(value) {
-  // Game.gamepad.game.request.method = "ANSWER";
-  usersAnswer = value;
-  answerBlockPut = true;
-  console.log("veikia");
-}
 
 Blockly.JavaScript["answerBlock"] = function (block) {
-  let value = block.getFieldValue("answerValue");
-  answerBlockPut = true;
-  // let value = "'" + block.getFieldValue("answerValue") + "'";
-  // return "usersAnswer = " + value + ";\n";
-  return "yes( " + value + ");\n";
+  let value = block.getFieldValue("answerValue"),
+    request = Blockly.Gamepad.utils.request("ANSWER", [value], block.id);
+
+  return request;
+  // let value = block.getFieldValue("answerValue");
+  // answerBlockPut = true;
+  // return "yes( " + value + ");\n";
 };
 
 class Game {
@@ -34,7 +27,9 @@ class Game {
     this.gui = gui;
     this.onATask;
     this.rightAnswer;
-    this.wasOnTask = 0;
+    // this.wasOnTask = 0;
+    this.wasOnTask = [];
+    this.usersAnswer = [];
   }
 
   /* --- Game handlers --- */
@@ -120,17 +115,13 @@ class Game {
   }
   //----------------------------------------------
   onTask(request, right) {
-    // console.log()
-    // this.rightAnswer = this.gamepad.level.task.rightAnswer;
-    if (answerBlockPut && usersAnswer == right) {
-      console.log("alright");
-    } else if (usersAnswer != null) {
+    if (this.usersAnswer[this.wasOnTask.length - 1].answer == right) {
+      this.usersAnswer[this.wasOnTask.length - 1].done = true;
+      console.log("the answer is correct");
+    } else {
       request.method = "FINISHED";
       alert("you lost!");
-      // alert("you lost!");
     }
-    console.log(usersAnswer);
-    console.log(answerBlockPut);
     console.log("ant tasko");
   }
 
@@ -143,33 +134,53 @@ class Game {
     let pegman = this.gamepad.level.pegman,
       marker = this.gamepad.level.marker,
       taskPlace = this.gamepad.level.task;
-
-    if (request.args[0] == 4) {
-      console.log("arggggggggs");
-    }
+    console.log(request.method);
 
     // if the game is finished show win/lose alert
     if (request.method == Blockly.Gamepad["STATES"]["FINISHED"] && !back) {
-      if (pegman.x == marker.x && pegman.y == marker.y) alert("you won!");
-      else alert("you lost!");
+      if (pegman.x == marker.x && pegman.y == marker.y) {
+        if (taskPlace.length == this.usersAnswer.length) alert("you won!");
+        else alert("you lost! Not enough answers");
+      } else alert("you lost!");
     }
-    if (usersAnswer != null) {
-      if (
-        taskPlace.filter((e) => e.x === pegman.x && e.y === pegman.y).length > 0
-      ) {
-        // if (pegman.x == taskPlace.x && pegman.y == taskPlace.y) {
+    if (request.method == "PATH" && request.args[0] == 4) {
+      console.log("yes");
+    }
+    if (
+      taskPlace.filter((e) => e.x === pegman.x && e.y === pegman.y).length > 0
+    ) {
+      // if the request is ANSWER
+      if (request.method == "ANSWER") {
+        this.usersAnswer.push({ answer: request.args[0], done: false });
+
         var right = taskPlace.filter(
           (e) => e.x === pegman.x && e.y === pegman.y
         )[0].rightAnswer;
-        this.onATask = true;
-        this.wasOnTask++;
-        if (this.wasOnTask < 2) {
-          this.onTask(request, right);
-        }
-        if (this.wasOnTask == 2) {
-          this.wasOnTask = 0;
-        }
+
+        this.onTask(request, right);
       }
+      if (
+        this.wasOnTask.filter((e) => e.x === pegman.x && e.y === pegman.y)
+          .length == 0
+      ) {
+        var pegmanX = pegman.x;
+        var pegmanY = pegman.y;
+        this.wasOnTask.push({ x: pegmanX, y: pegmanY });
+      }
+    }
+    // if (
+    //   this.wasOnTask.length != 0 &&
+    //   this.usersAnswer[this.wasOnTask.length - 1] == undefined
+    // ) {
+    //   request.method = "FINISHED";
+    //   alert("you lost!");
+    // }
+    if (
+      request.method == "ANSWER" &&
+      taskPlace.filter((e) => e.x === pegman.x && e.y === pegman.y).length == 0
+    ) {
+      request.method = "FINISHED";
+      alert("you lost! Wrong place for an answer");
     }
 
     // log the request and the pegman
@@ -231,11 +242,10 @@ class Game {
     );
   }
   isOnATask(path, pegman, position, task) {
-    console.log(pegman);
-    console.log(task[0]);
     if (task.filter((e) => e.x === pegman.x && e.y === pegman.y).length > 0) {
       console.log("on a task");
-    } else console.log("ne...");
+      return true;
+    } else return false;
   }
 
   /* --- Game methods --- */
@@ -282,16 +292,19 @@ class Game {
     //    'BACKWARD': '2',
     //    'LEFT': '3'
     //}
+    var couldMove;
     if (direction < 4) {
       position = this.getNextPosition((pegman.direction + direction) % 4);
+      couldMove = this.canMove(path, pegman, position);
     } else {
       position = { x: 0, y: 0 };
-      this.isOnATask(path, pegman, position, task);
+      couldMove = this.isOnATask(path, pegman, position, task);
     }
+    console.log(couldMove);
     // the return: value
     // if ( value ) {...} else {...}
     return {
-      return: this.canMove(path, pegman, position),
+      return: couldMove,
     };
   }
 
