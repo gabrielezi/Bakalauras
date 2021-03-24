@@ -27,7 +27,6 @@ class Game {
     this.gui = gui;
     this.onATask;
     this.rightAnswer;
-    // this.wasOnTask = 0;
     this.wasOnTask = [];
     this.usersAnswer = [];
   }
@@ -100,6 +99,11 @@ class Game {
     this.gamepad.reset();
     // restore the old code from the localStorage
     this.gamepad.restore("" + this.id + start);
+
+    this.onATask = undefined;
+    this.rightAnswer = undefined;
+    this.wasOnTask = [];
+    this.usersAnswer = [];
   }
 
   // load the code
@@ -122,7 +126,6 @@ class Game {
       request.method = "FINISHED";
       alert("you lost!");
     }
-    console.log("ant tasko");
   }
 
   /* --- Game utils --- */
@@ -142,9 +145,6 @@ class Game {
         if (taskPlace.length == this.usersAnswer.length) alert("you won!");
         else alert("you lost! Not enough answers");
       } else alert("you lost!");
-    }
-    if (request.method == "PATH" && request.args[0] == 4) {
-      console.log("yes");
     }
     if (
       taskPlace.filter((e) => e.x === pegman.x && e.y === pegman.y).length > 0
@@ -243,7 +243,6 @@ class Game {
   }
   isOnATask(path, pegman, position, task) {
     if (task.filter((e) => e.x === pegman.x && e.y === pegman.y).length > 0) {
-      console.log("on a task");
       return true;
     } else return false;
   }
