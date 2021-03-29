@@ -1,0 +1,252 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Blockly map creation</title>
+
+    <link rel="icon" href="../docs/icons/favicon/icon.svg">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!--Blockly-->
+    <script src="../libs/blockly/blockly_compressed.js"></script>
+    <script src="../libs/blockly/blocks_compressed.js"></script>
+    <script src="../libs/blockly/javascript_compressed.js"></script>
+    <script src="../libs/blockly/en.js"></script>
+    <script src="./js/customBlocks.js"></script>
+    <script src="./js/mapCreation.js"></script>
+    <script src="./js/html2canvas.js"></script>
+    <script src="./js/canvas2image.js"></script>
+
+    <!--blockly-gamepad-->
+    <script src="../libs/gamepad/gamepad.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <!--title-->
+        <span class="title">
+            <div>
+                <a href="https://developers.google.com/blockly/">Blockly</a> 
+                <a style="font-size: 80%;">&</a> 
+                <a href="https://github.com/Paol-imi/blockly-gamepad">blockly-gamepad</a>: Maze
+            </div>
+        </span>
+        <vr></vr>
+        <!--start switch-->
+        <!-- <span class="switch_span">start</span>
+        <label class="switch">
+            <input id="start_check" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <vr></vr> -->
+        <!--categories switch-->
+        <!-- <span class="switch_span">categories</span>
+        <label class="switch">
+            <input id="categories_check" type="checkbox">
+            <span class="slider round"></span>
+        </label> -->
+    </header>
+
+    <main>
+        
+        <!--game div-->
+        <div id="buttons-div">
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="1Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="2Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="3Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="4Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="5Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="6Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="7Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="8Button"></button>
+            <div></div>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="9Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="10Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="11Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="12Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="13Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="14Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="15Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="16Button"></button>
+            <div></div>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="17Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="18Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="19Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="20Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="21Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="22Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="23Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="24Button"></button>
+            <div></div>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="25Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="26Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="27Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="28Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="29Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="30Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="31Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="32Button"></button>
+            <div></div>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="33Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="34Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="35Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="36Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="37Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="38Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="39Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="40Button"></button>
+            <div></div>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="41Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="42Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="43Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="44Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="45Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="46Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="47Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="48Button"></button>
+            <div></div>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="49Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="50Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="51Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="52Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="53Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="54Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="55Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="56Button"></button>
+            <div></div>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="57Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="58Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="59Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="60Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="61Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="62Button"></button>
+            <button onclick="submitButtonStyle(id)" type="submit" class="squareButton" id="63Button"></button>
+            <button onclick="capture()" type="submit" class="squareButton" id="64Button"></button>
+        </div>
+        <!--workspace div-->
+        <div id="blockly-editor">
+            <div id="blockly-div"></div>
+            <!--toolbox without categories-->
+            <xml id="toolbox" style="display: none">
+                <block type="move"></block>
+                <block type="turn"></block>
+                <block type="turn">
+                    <field name="DIRECTION">3</field>
+                </block>
+                <block type="repeat_until"></block>
+                <block type="if_path"></block>
+                <block type="if_else_path"></block>
+                <block type="answerBlock"></block>
+            </xml>
+            <!--toolbox whit categories-->
+            <xml id="toolbox_c" style="display: none">
+                <category name="Controls" colour="285">
+                    <block type="move"></block>
+                    <block type="turn"></block>
+                    <block type="answerBlock"></block>
+                    <block type="turn">
+                        <field name="DIRECTION">3</field>
+                    </block>
+                </category>
+                <category name="Logic" colour="120">
+                    <block type="repeat_until"></block>
+                    <block type="if_path"></block>
+                    <block type="if_else_path"></block>
+                </category>
+            </xml>
+        </div>
+    </main>
+
+    <!--load global parameters-->
+    <script>
+        // get parameters in url
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        // global vars
+        let {
+            start,
+            categories,
+            id
+        } = getUrlVars()
+
+        // update parameters
+        start = start != undefined
+        categories = categories != undefined
+        id = (id == '1') ? 0 : 1
+
+        // update the checkers
+        if (start) document.getElementById('start_check').checked = true
+        if (categories) document.getElementById('categories_check').checked = true
+
+        // set the toolbox
+        const toolbox = document.getElementById(categories ? 'toolbox_c' : 'toolbox')
+    </script>
+
+    <!--scripts-->
+    <script src="js/levels.js"></script>
+    <!-- <script src="js/gui.js"></script> -->
+    <!-- <script src="js/game.js"></script> -->
+    <script src="js/index.js"></script>
+
+    <!-- link event to buttons
+    <script>
+        // link the buttons
+        document.getElementById('load').onclick = () => game.loadCode() + console.clear()
+        document.getElementById('level_1').onclick = () => game.loadLevel(levels[id = 0]) + console.clear()
+        document.getElementById('level_2').onclick = () => game.loadLevel(levels[id = 1]) + console.clear()
+
+        document.getElementById('forward').onclick = () => gamepad.forward() + gui.removeAnimation()
+        document.getElementById('backward').onclick = () => gamepad.backward() + gui.removeAnimation()
+        document.getElementById('play').onclick = () => gamepad.play()
+        document.getElementById('pause').onclick = () => gamepad.pause()
+    </script> -->
+
+    <!--remaining block-->
+    <!-- <script>
+        // update remaining block
+        Blockly.getMainWorkspace().addChangeListener(() => {
+            let capacity = Blockly.getMainWorkspace().remainingCapacity()
+            if (capacity != Infinity) {
+                // show capacity div
+                document.getElementById('capacity').style.display = 'block'
+                document.getElementById('capacityNumber').innerHTML = capacity
+            } else {
+                // hide capacity div
+                document.getElementById('capacity').style.display = 'none'
+            }
+        })
+    </script> -->
+
+    <!--navigation-->
+    <script>
+        // get the url
+        const getUrl = (start, categories) => {
+            let url = []
+
+            if (start) url.push('start=true')
+            if (categories) url.push('categories=true')
+            url.push('id=' + (id + 1))
+
+            return 'index.html?' + url.join('&')
+        }
+
+        // add handlers
+        // document.getElementById('start_check').onclick =
+        //     (event) => window.location.href = getUrl(event.target.checked, categories)
+
+        // document.getElementById('categories_check').onclick =
+        //     (event) => window.location.href = getUrl(start, event.target.checked)
+
+        // show capacity div
+        if (id == 2) document.getElementById('capacity').style.display = 'block'
+    </script>
+   
+</body>
+
+</html>
