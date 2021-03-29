@@ -1,6 +1,6 @@
 
 ## Starting the game
-Before installing, download and install Node.js. Node.js 0.10 or higher is required.
+Before installing, download and install Node.js.
 
 * Clone this repo
 * Run "npm install" to install all required dependencies
