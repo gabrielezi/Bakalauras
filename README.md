@@ -1,7 +1,10 @@
 
 ## Starting the game
+Before installing, download and install Node.js. Node.js 0.10 or higher is required.
 
-Just open html file "index.html" (bakalauro_praktine_dalis/demo/index.html) in your browser.
+* Clone this repo
+* Run "npm install" to install all required dependencies
+* Go to bakalauro_praktine_dalis, then open a terminal and run command "node server.js"
 
 ## Try completing the maze while also answering some math questions.
 
