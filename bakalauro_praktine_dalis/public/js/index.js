@@ -18,7 +18,7 @@ Blockly.Gamepad.init({
       template: Blockly.Gamepad["TEMPLATES"]["WHILE"], // the template type
       json: {
         // type: 'repeat_until',    is automatically setted
-        message0: "Repeat until %1 %2 do %3",
+        message0: "Kartojant iki %1 %2 vykdyti: %3", //"Repeat until %1 %2 do %3",
         args0: [
           {
             type: "field_image",
@@ -51,17 +51,21 @@ Blockly.Gamepad.init({
       statements: ["DO"],
       template: Blockly.Gamepad["TEMPLATES"]["IF"],
       json: {
-        message0: "if path %1 %2 do %3",
+        message0: "jei kelias %1 %2 tuomet %3", //"if path %1 %2 do %3",
         args0: [
           {
             type: "field_dropdown",
             name: "DIRECTION", // the field name
             options: [
               // args[0] will be one of these options
-              ["ahead", Blockly.Gamepad["INPUTS"]["FORWARD"]],
-              ["to the right ↻", Blockly.Gamepad["INPUTS"]["RIGHT"]],
-              ["to the left ↺", Blockly.Gamepad["INPUTS"]["LEFT"]],
-              ["has a task", Blockly.Gamepad["INPUTS"]["TASK"]],
+              ["egzistuoja priekyje", Blockly.Gamepad["INPUTS"]["FORWARD"]],
+              ["eina į dešinę ↻", Blockly.Gamepad["INPUTS"]["RIGHT"]],
+              ["eina į kairę ↺", Blockly.Gamepad["INPUTS"]["LEFT"]],
+              ["turi užduotį", Blockly.Gamepad["INPUTS"]["TASK"]],
+              // ["ahead", Blockly.Gamepad["INPUTS"]["FORWARD"]],
+              // ["to the right ↻", Blockly.Gamepad["INPUTS"]["RIGHT"]],
+              // ["to the left ↺", Blockly.Gamepad["INPUTS"]["LEFT"]],
+              // ["has a task", Blockly.Gamepad["INPUTS"]["TASK"]],
             ],
           },
           {
@@ -89,16 +93,20 @@ Blockly.Gamepad.init({
       statements: ["DO", "ELSE"],
       template: Blockly.Gamepad["TEMPLATES"]["IF_ELSE"],
       json: {
-        message0: "if path %1 %2 do %3 else %4",
+        message0: "jei kelias %1 %2 tuomet %3 kitu atveju %4", //"if path %1 %2 do %3 else %4",
         args0: [
           {
             type: "field_dropdown",
             name: "DIRECTION",
             options: [
-              ["ahead", Blockly.Gamepad["INPUTS"]["FORWARD"]],
-              ["to the right ↻", Blockly.Gamepad["INPUTS"]["RIGHT"]],
-              ["to the left ↺", Blockly.Gamepad["INPUTS"]["LEFT"]],
-              ["has a task", Blockly.Gamepad["INPUTS"]["TASK"]],
+              ["egzistuoja priekyje", Blockly.Gamepad["INPUTS"]["FORWARD"]],
+              ["eina į dešinę ↻", Blockly.Gamepad["INPUTS"]["RIGHT"]],
+              ["eina į kairę ↺", Blockly.Gamepad["INPUTS"]["LEFT"]],
+              ["turi užduotį", Blockly.Gamepad["INPUTS"]["TASK"]],
+              // ["ahead", Blockly.Gamepad["INPUTS"]["FORWARD"]],
+              // ["to the right ↻", Blockly.Gamepad["INPUTS"]["RIGHT"]],
+              // ["to the left ↺", Blockly.Gamepad["INPUTS"]["LEFT"]],
+              // ["has a task", Blockly.Gamepad["INPUTS"]["TASK"]],
             ],
           },
           {
@@ -128,14 +136,16 @@ Blockly.Gamepad.init({
         },
       ],
       json: {
-        message0: "turn %1",
+        message0: "pasisukti į %1", //"turn %1",
         args0: [
           {
             type: "field_dropdown",
             name: "DIRECTION",
             options: [
-              ["right ↻", Blockly.Gamepad["INPUTS"]["RIGHT"]],
-              ["left ↺", Blockly.Gamepad["INPUTS"]["LEFT"]],
+              // ["right ↻", Blockly.Gamepad["INPUTS"]["RIGHT"]],
+              // ["left ↺", Blockly.Gamepad["INPUTS"]["LEFT"]],
+              ["dešinę ↻", Blockly.Gamepad["INPUTS"]["RIGHT"]],
+              ["kairę ↺", Blockly.Gamepad["INPUTS"]["LEFT"]],
             ],
           },
         ],
@@ -148,7 +158,7 @@ Blockly.Gamepad.init({
       // the request will be { method: 'MOVE', args: [] ]}
       method: "MOVE",
       json: {
-        message0: "move forward",
+        message0: "paeiti į priekį", //"move forward",
         previousStatement: null,
         nextStatement: null,
         colour: 285,
@@ -164,36 +174,12 @@ Blockly.Gamepad.init({
         },
       ],
       json: {
-        message0: "Answer is: %1",
+        message0: "Atsakymas yra: %1", //"Answer is: %1",
         previousStatement: null,
         nextStatement: null,
         colour: 285,
       },
     },
-    // answer: {
-    //   // the request will be { method: 'ANSWER', args: [ Blockly.Gamepad['INPUTS']['...some direction'] ]}
-    //   method: "ANSWER",
-    //   args: [
-    //     {
-    //       field: "THEANSWER",
-    //       get: parseInt,
-    //     },
-    //   ],
-    //   json: {
-    //     type: "field_number",
-    //     message0: "Answer is: %1",
-    //     args0: [
-    //       {
-    //         type: "field_number",
-    //         name: "answerValue",
-    //       },
-    //     ],
-
-    //     previousStatement: null,
-    //     nextStatement: null,
-    //     colour: 355,
-    //   },
-    // },
   },
 });
 

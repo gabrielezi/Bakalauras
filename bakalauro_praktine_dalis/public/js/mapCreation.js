@@ -11,6 +11,12 @@ function submitButtonStyle(id) {
 function capture() {
   html2canvas(document.querySelector("#buttons-div")).then((canvas) => {
     // return Canvas2Image.saveAsPNG(canvas);
+    // xhr.open("POST", url, true);
+    // xhr.setRequestHeader(
+    //   "Content-Type",
+    //   "application/x-www-form-urlencoded; charset=UTF-8"
+    // );
+    // xhr.send(canvas);
     return saveAs(canvas.toDataURL(), "canvas.png");
     document.body.appendChild(canvas);
   });

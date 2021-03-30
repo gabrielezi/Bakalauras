@@ -236,3 +236,10 @@ input:checked + .slider:before {
   height: 40;
   width: 40;
 }
+#buttons-div {
+  /* width: 400px;
+  height: 400px; */
+  margin: 20px 40px;
+  /* position: absolute;
+  top: 60px; */
+}
