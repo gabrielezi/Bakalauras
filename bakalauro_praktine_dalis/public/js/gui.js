@@ -65,6 +65,16 @@ class Gui {
       this.id == 2 ? "block" : "none";
     document.getElementById("3").style.display =
       this.id == 3 ? "block" : "none";
+    document.getElementById("4").style.display =
+      this.id == 4 ? "block" : "none";
+    document.getElementById("5").style.display =
+      this.id == 5 ? "block" : "none";
+    document.getElementById("6").style.display =
+      this.id == 6 ? "block" : "none";
+    document.getElementById("7").style.display =
+      this.id == 7 ? "block" : "none";
+    document.getElementById("8").style.display =
+      this.id == 8 ? "block" : "none";
   }
 
   // remove animation
@@ -270,6 +280,56 @@ const guiData = {
       rect: {
         x: 51,
         y: 191,
+      },
+    },
+    {
+      pegman: {
+        x: -145,
+        y: 291,
+      },
+      rect: {
+        x: 51,
+        y: 291,
+      },
+    },
+    {
+      pegman: {
+        x: -95,
+        y: 191,
+      },
+      rect: {
+        x: 101,
+        y: 191,
+      },
+    },
+    {
+      pegman: {
+        x: -145,
+        y: 291,
+      },
+      rect: {
+        x: 51,
+        y: 291,
+      },
+    },
+    {
+      pegman: {
+        x: -145,
+        y: 291,
+      },
+      rect: {
+        x: 51,
+        y: 291,
+      },
+    },
+    {
+      pegman: {
+        x: -145,
+        y: 291,
+      },
+      rect: {
+        x: 51,
+        y: 291,
       },
     },
     {

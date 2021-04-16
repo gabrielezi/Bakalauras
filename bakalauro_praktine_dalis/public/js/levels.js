@@ -67,10 +67,321 @@ const levels = [
         [5, 0],
       ],
     },
-  },
-  // level 3
+  }, //game3
   {
     id: 3,
+    // game data
+    maxBlocks: 5,
+
+    //game data
+    game: {
+      // pegman data
+      pegman: {
+        direction: 1,
+        x: 0,
+        y: 0,
+      },
+      // marker data
+      marker: {
+        x: 3,
+        y: 5,
+      },
+      // game task
+      task: [
+        {
+          x: 2,
+          y: 2,
+          rightAnswer: 92,
+        },
+        {
+          x: 4,
+          y: 4,
+          rightAnswer: 105,
+        },
+      ],
+      // game path
+      path: [
+        // [x, y]
+        [0, 0],
+        [1, 0],
+        [2, 0],
+        [3, 0],
+        [2, 1],
+        [2, 2],
+        [2, 3],
+        [1, 2],
+        [0, 2],
+        [0, 3],
+        [0, 4],
+        [0, 5],
+        [1, 4],
+        [1, 5],
+        [3, 2],
+        [4, 2],
+        [5, 2],
+        [5, 1],
+        [5, 0],
+        [4, 3],
+        [4, 4],
+        [3, 4],
+        [3, 5],
+        [5, 4],
+        [5, 5],
+      ],
+    },
+  }, //game4
+  {
+    id: 4,
+    // game data
+    maxBlocks: 14,
+
+    //game data
+    game: {
+      // pegman data
+      pegman: {
+        direction: 1,
+        x: 0,
+        y: 0,
+      },
+      // marker data
+      marker: {
+        x: 3,
+        y: 5,
+      },
+      // game task
+      task: [
+        {
+          x: 2,
+          y: 2,
+          rightAnswer: 92,
+        },
+        {
+          x: 4,
+          y: 4,
+          rightAnswer: 105,
+        },
+      ],
+      // game path
+      path: [
+        // [x, y]
+        [0, 0],
+        [1, 0],
+        [2, 0],
+        [3, 0],
+        [2, 1],
+        [2, 2],
+        [2, 3],
+        [1, 2],
+        [0, 2],
+        [0, 3],
+        [0, 4],
+        [0, 5],
+        [1, 4],
+        [1, 5],
+        [3, 2],
+        [4, 2],
+        [5, 2],
+        [5, 1],
+        [5, 0],
+        [4, 3],
+        [4, 4],
+        [3, 4],
+        [3, 5],
+        [5, 4],
+        [5, 5],
+      ],
+    },
+  }, //game5
+  {
+    id: 5,
+    // game data
+    maxBlocks: 14,
+
+    //game data
+    game: {
+      // pegman data
+      pegman: {
+        direction: 1,
+        x: 0,
+        y: 0,
+      },
+      // marker data
+      marker: {
+        x: 3,
+        y: 5,
+      },
+      // game task
+      task: [
+        {
+          x: 2,
+          y: 2,
+          rightAnswer: 92,
+        },
+        {
+          x: 4,
+          y: 4,
+          rightAnswer: 105,
+        },
+      ],
+      // game path
+      path: [
+        // [x, y]
+        [0, 0],
+        [1, 0],
+        [2, 0],
+        [3, 0],
+        [2, 1],
+        [2, 2],
+        [2, 3],
+        [1, 2],
+        [0, 2],
+        [0, 3],
+        [0, 4],
+        [0, 5],
+        [1, 4],
+        [1, 5],
+        [3, 2],
+        [4, 2],
+        [5, 2],
+        [5, 1],
+        [5, 0],
+        [4, 3],
+        [4, 4],
+        [3, 4],
+        [3, 5],
+        [5, 4],
+        [5, 5],
+      ],
+    },
+  }, //game6
+  {
+    id: 6,
+    // game data
+    maxBlocks: 14,
+
+    //game data
+    game: {
+      // pegman data
+      pegman: {
+        direction: 1,
+        x: 0,
+        y: 0,
+      },
+      // marker data
+      marker: {
+        x: 3,
+        y: 5,
+      },
+      // game task
+      task: [
+        {
+          x: 2,
+          y: 2,
+          rightAnswer: 92,
+        },
+        {
+          x: 4,
+          y: 4,
+          rightAnswer: 105,
+        },
+      ],
+      // game path
+      path: [
+        // [x, y]
+        [0, 0],
+        [1, 0],
+        [2, 0],
+        [3, 0],
+        [2, 1],
+        [2, 2],
+        [2, 3],
+        [1, 2],
+        [0, 2],
+        [0, 3],
+        [0, 4],
+        [0, 5],
+        [1, 4],
+        [1, 5],
+        [3, 2],
+        [4, 2],
+        [5, 2],
+        [5, 1],
+        [5, 0],
+        [4, 3],
+        [4, 4],
+        [3, 4],
+        [3, 5],
+        [5, 4],
+        [5, 5],
+      ],
+    },
+  }, // game7
+  {
+    id: 7,
+    // game data
+    maxBlocks: 2,
+
+    //game data
+    game: {
+      // pegman data
+      pegman: {
+        direction: 1,
+        x: 0,
+        y: 0,
+      },
+      // marker data
+      marker: {
+        x: 3,
+        y: 5,
+      },
+      // game task
+      task: [
+        {
+          x: 2,
+          y: 2,
+          rightAnswer: 92,
+        },
+        {
+          x: 4,
+          y: 4,
+          rightAnswer: 105,
+        },
+      ],
+      // game path
+      path: [
+        // [x, y]
+        [0, 0],
+        [1, 0],
+        [2, 0],
+        [3, 0],
+        [2, 1],
+        [2, 2],
+        [2, 3],
+        [1, 2],
+        [0, 2],
+        [0, 3],
+        [0, 4],
+        [0, 5],
+        [1, 4],
+        [1, 5],
+        [3, 2],
+        [4, 2],
+        [5, 2],
+        [5, 1],
+        [5, 0],
+        [4, 3],
+        [4, 4],
+        [3, 4],
+        [3, 5],
+        [5, 4],
+        [5, 5],
+      ],
+    },
+  },
+
+  // level 8
+  {
+    id: 8,
     // game data
     maxBlocks: 14,
 
