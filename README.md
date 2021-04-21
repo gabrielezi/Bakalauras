@@ -10,5 +10,5 @@ Before installing, download and install Node.js.
 
 After putting all the needed blocks Click "Load Code" and then "Start" buttons
 
-3rd level maze answer:
+8th level maze answer:
 ![3levelAnswer](https://user-images.githubusercontent.com/41295383/112349790-b359ea80-8cd1-11eb-822b-125b7e54eb0b.png)
