@@ -246,3 +246,7 @@ input:checked + .slider:before {
   display: block;
   color: red;
 }
+#points {
+  margin-left: 20px;
+  text-shadow: 2px 2px 5px green;
+}

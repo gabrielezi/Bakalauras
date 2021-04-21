@@ -148,9 +148,12 @@ class Game {
         if (
           this.usersAnswer.length >=
           taskPlace.filter((obj) => obj.optional === false).length
-        )
+        ) {
+          document.getElementById("points").innerHTML =
+            parseInt(document.getElementById("points").textContent) +
+            this.usersAnswer.length;
           alert("Puiku, laimėjai!");
-        else alert("Pralaimėjai! Nėra pakankamai atsakymų");
+        } else alert("Pralaimėjai! Nėra pakankamai atsakymų");
       } else alert("Pralaimėjai!");
     }
     if (
