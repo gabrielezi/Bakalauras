@@ -11,9 +11,6 @@ Blockly.JavaScript["answerBlock"] = function (block) {
     request = Blockly.Gamepad.utils.request("ANSWER", [value], block.id);
 
   return request;
-  // let value = block.getFieldValue("answerValue");
-  // answerBlockPut = true;
-  // return "yes( " + value + ");\n";
 };
 
 class Game {
@@ -119,12 +116,16 @@ class Game {
   }
   //----------------------------------------------
   onTask(request, right) {
+    if (typeof this.usersAnswer[this.wasOnTask.length - 1].answer === "string")
+      this.usersAnswer[this.wasOnTask.length - 1].answer = this.usersAnswer[
+        this.wasOnTask.length - 1
+      ].answer.toLowerCase();
     if (this.usersAnswer[this.wasOnTask.length - 1].answer == right) {
       this.usersAnswer[this.wasOnTask.length - 1].done = true;
       console.log("the answer is correct");
     } else {
       request.method = "FINISHED";
-      alert("you lost!");
+      alert("Pralaimėjai! Atsakymas neteisingas");
     }
   }
 
@@ -142,9 +143,15 @@ class Game {
     // if the game is finished show win/lose alert
     if (request.method == Blockly.Gamepad["STATES"]["FINISHED"] && !back) {
       if (pegman.x == marker.x && pegman.y == marker.y) {
-        if (taskPlace.length == this.usersAnswer.length) alert("you won!");
-        else alert("you lost! Not enough answers");
-      } else alert("you lost!");
+        console.log(taskPlace.filter((obj) => obj.optional === false).length);
+        console.log(this.usersAnswer.length);
+        if (
+          this.usersAnswer.length >=
+          taskPlace.filter((obj) => obj.optional === false).length
+        )
+          alert("Puiku, laimėjai!");
+        else alert("Pralaimėjai! Nėra pakankamai atsakymų");
+      } else alert("Pralaimėjai!");
     }
     if (
       taskPlace.filter((e) => e.x === pegman.x && e.y === pegman.y).length > 0
@@ -180,7 +187,7 @@ class Game {
       taskPlace.filter((e) => e.x === pegman.x && e.y === pegman.y).length == 0
     ) {
       request.method = "FINISHED";
-      alert("you lost! Wrong place for an answer");
+      alert("Pralaimėjai! Klaidinga atsakymo vieta");
     }
 
     // log the request and the pegman

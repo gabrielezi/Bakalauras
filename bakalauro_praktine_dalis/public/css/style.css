@@ -237,9 +237,12 @@ input:checked + .slider:before {
   width: 40;
 }
 #buttons-div {
-  /* width: 400px;
-  height: 400px; */
   margin: 20px 40px;
-  /* position: absolute;
-  top: 60px; */
+}
+.hide {
+  display: none;
+}
+.hoverTask:hover + .hide {
+  display: block;
+  color: red;
 }

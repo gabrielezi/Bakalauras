@@ -41,7 +41,7 @@
         <button class="button level" id="level_7">7</button>
         <button class="button level" id="level_8">8</button>
         <vr></vr>
-        <button id="createMap" onclick="onButtonClick()">Create a map</button>
+        <!-- <button id="createMap" onclick="onButtonClick()">Create a map</button> -->
     </header>
 
     <main>
@@ -74,22 +74,20 @@
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none" version="1.1" id="3" width="400px"
                 height="400px" viewBox="0 0 400 400">
                 <image xlink:href="images/maze3.png" class="maze" x="0" y="0" width="400" height="400"></image>
-                <image id="finish3" xlink:href="images/marker.png" height="34" width="20" x="215" y="46"></image>
-                <text id="task1" x="160" y="230" fill="red" font-weight="bold">23*4</text>
-                <text id="task1" x="258" y="130" fill="red" font-weight="bold">15*7</text>
+                <image id="finish3" xlink:href="images/marker.png" height="34" width="20" x="265" y="46"></image>
+                <text id="task1" x="253" y="330" fill="red" font-weight="bold">23+74</text>
                 <clipPath id="3pegmanClipPath">
                     <rect id="clipRect3" width="49" height="52" x="51" y="291"></rect>
                 </clipPath>
                 <image id="pegman3" xlink:href="images/pegman.png" height="52" width="1029"
-                    clip-path="url(#3pegmanClipPath)" x="-145" y="291" transform="rotate(0, 0, 0)"></image>
+                    clip-path="url(#3pegmanClipPath)" x="-95" y="191" transform="rotate(0, 0, 0)"></image>
             </svg>
             <!--game 4-->
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none" version="1.1" id="4" width="400px"
                 height="400px" viewBox="0 0 400 400">
                 <image xlink:href="images/maze4.png" class="maze" x="0" y="0" width="400" height="400"></image>
-                <image id="finish4" xlink:href="images/marker.png" height="34" width="20" x="215" y="46"></image>
-                <text id="task1" x="160" y="230" fill="red" font-weight="bold">23*4</text>
-                <text id="task1" x="258" y="130" fill="red" font-weight="bold">15*7</text>
+                <image id="finish4" xlink:href="images/marker.png" height="34" width="20" x="265" y="96"></image>
+                <text id="task1" x="167" y="230" fill="red" font-weight="bold">6*5</text>
                 <clipPath id="4pegmanClipPath">
                     <rect id="clipRect4" width="49" height="52" x="51" y="291"></rect>
                 </clipPath>
@@ -100,9 +98,9 @@
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none" version="1.1" id="5" width="400px"
                 height="400px" viewBox="0 0 400 400">
                 <image xlink:href="images/maze5.png" class="maze" x="0" y="0" width="400" height="400"></image>
-                <image id="finish5" xlink:href="images/marker.png" height="34" width="20" x="215" y="46"></image>
-                <text id="task1" x="160" y="230" fill="red" font-weight="bold">23*4</text>
-                <text id="task1" x="258" y="130" fill="red" font-weight="bold">15*7</text>
+                <image id="finish5" xlink:href="images/marker.png" height="34" width="20" x="165" y="195"></image>
+                <text id="task1" x="165" y="130" fill="red" font-weight="bold" class="hoverTask">??</text>
+                <text class="hide" x="80" y="113">Kokia planeta yra vadinama „raudonąja"?</text>
                 <clipPath id="5pegmanClipPath">
                     <rect id="clipRect5" width="49" height="52" x="51" y="291"></rect>
                 </clipPath>
@@ -113,9 +111,9 @@
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none" version="1.1" id="6" width="400px"
                 height="400px" viewBox="0 0 400 400">
                 <image xlink:href="images/maze6.png" class="maze" x="0" y="0" width="400" height="400"></image>
-                <image id="finish6" xlink:href="images/marker.png" height="34" width="20" x="215" y="46"></image>
-                <text id="task1" x="160" y="230" fill="red" font-weight="bold">23*4</text>
-                <text id="task1" x="258" y="130" fill="red" font-weight="bold">15*7</text>
+                <image id="finish6" xlink:href="images/marker.png" height="34" width="20" x="265" y="295"></image>
+                <text id="task1" x="165" y="130" fill="red" font-weight="bold" class="hoverTask">??</text>
+                <text class="hide" x="80" y="113">Kokia yra vandens užšalimo temperatūra?</text>
                 <clipPath id="6pegmanClipPath">
                     <rect id="clipRect6" width="49" height="52" x="51" y="291"></rect>
                 </clipPath>
@@ -126,8 +124,11 @@
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none" version="1.1" id="7" width="400px"
                 height="400px" viewBox="0 0 400 400">
                 <image xlink:href="images/maze7.png" class="maze" x="0" y="0" width="400" height="400"></image>
-                <image id="finish7" xlink:href="images/marker.png" height="34" width="20" x="215" y="46"></image>
-                <text id="task1" x="160" y="230" fill="red" font-weight="bold">23*4</text>
+                <image id="finish7" xlink:href="images/marker.png" height="34" width="20" x="15" y="145"></image>
+                <text id="task1" x="117" y="130" fill="red" font-weight="bold" class="hoverTask">??-Neprivalomas</text>
+                <text class="hide" x="20" y="113">Kiek laipsnių sudaro visų trikampio vidinių kampų suma?</text>
+                <text id="task1" x="315" y="180" fill="red" font-weight="bold" class="hoverTask">??</text>
+                <text class="hide" x="140" y="160">Kiek gramų sudaro 1000 kilogramų?</text> 
                 <clipPath id="7pegmanClipPath">
                     <rect id="clipRect7" width="49" height="52" x="51" y="291"></rect>
                 </clipPath>

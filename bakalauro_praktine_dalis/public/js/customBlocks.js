@@ -4,8 +4,9 @@ Blockly.defineBlocksWithJsonArray([
     message0: "Atsakymas yra: %1", //"Answer is: %1",
     args0: [
       {
-        type: "field_number",
+        type: "field_input",
         name: "answerValue",
+        text: "",
       },
     ],
 

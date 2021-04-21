@@ -25,6 +25,7 @@ const levels = [
           x: 1,
           y: 1,
           rightAnswer: 5,
+          optional: false,
         },
       ],
       // game path
@@ -71,8 +72,7 @@ const levels = [
   {
     id: 3,
     // game data
-    maxBlocks: 5,
-
+    maxBlocks: 6,
     //game data
     game: {
       // pegman data
@@ -83,20 +83,16 @@ const levels = [
       },
       // marker data
       marker: {
-        x: 3,
+        x: 2,
         y: 5,
       },
       // game task
       task: [
         {
           x: 2,
-          y: 2,
-          rightAnswer: 92,
-        },
-        {
-          x: 4,
-          y: 4,
-          rightAnswer: 105,
+          y: 0,
+          rightAnswer: 97,
+          optional: false,
         },
       ],
       // game path
@@ -105,35 +101,18 @@ const levels = [
         [0, 0],
         [1, 0],
         [2, 0],
-        [3, 0],
         [2, 1],
         [2, 2],
         [2, 3],
-        [1, 2],
-        [0, 2],
-        [0, 3],
-        [0, 4],
-        [0, 5],
-        [1, 4],
-        [1, 5],
-        [3, 2],
-        [4, 2],
-        [5, 2],
-        [5, 1],
-        [5, 0],
-        [4, 3],
-        [4, 4],
-        [3, 4],
-        [3, 5],
-        [5, 4],
-        [5, 5],
+        [2, 4],
+        [2, 5],
       ],
     },
   }, //game4
   {
     id: 4,
     // game data
-    maxBlocks: 14,
+    maxBlocks: 7,
 
     //game data
     game: {
@@ -145,20 +124,16 @@ const levels = [
       },
       // marker data
       marker: {
-        x: 3,
-        y: 5,
+        x: 4,
+        y: 4,
       },
       // game task
       task: [
         {
           x: 2,
           y: 2,
-          rightAnswer: 92,
-        },
-        {
-          x: 4,
-          y: 4,
-          rightAnswer: 105,
+          rightAnswer: 30,
+          optional: false,
         },
       ],
       // game path
@@ -166,37 +141,21 @@ const levels = [
         // [x, y]
         [0, 0],
         [1, 0],
-        [2, 0],
-        [3, 0],
+        [1, 1],
         [2, 1],
         [2, 2],
-        [2, 3],
-        [1, 2],
-        [0, 2],
-        [0, 3],
-        [0, 4],
-        [0, 5],
-        [1, 4],
-        [1, 5],
         [3, 2],
-        [4, 2],
-        [5, 2],
-        [5, 1],
-        [5, 0],
+        [3, 3],
         [4, 3],
         [4, 4],
-        [3, 4],
-        [3, 5],
-        [5, 4],
-        [5, 5],
       ],
     },
   }, //game5
   {
     id: 5,
     // game data
-    maxBlocks: 14,
-
+    maxBlocks: 6,
+    blocks: ["move", "turn", "answerBlock", "repeat_until", "if_path"],
     //game data
     game: {
       // pegman data
@@ -207,20 +166,16 @@ const levels = [
       },
       // marker data
       marker: {
-        x: 3,
-        y: 5,
+        x: 2,
+        y: 2,
       },
       // game task
       task: [
         {
           x: 2,
-          y: 2,
-          rightAnswer: 92,
-        },
-        {
-          x: 4,
           y: 4,
-          rightAnswer: 105,
+          rightAnswer: "marsas",
+          optional: false,
         },
       ],
       // game path
@@ -230,34 +185,26 @@ const levels = [
         [1, 0],
         [2, 0],
         [3, 0],
-        [2, 1],
-        [2, 2],
-        [2, 3],
-        [1, 2],
-        [0, 2],
-        [0, 3],
-        [0, 4],
-        [0, 5],
-        [1, 4],
-        [1, 5],
-        [3, 2],
+        [4, 0],
+        [4, 1],
         [4, 2],
-        [5, 2],
-        [5, 1],
-        [5, 0],
         [4, 3],
         [4, 4],
         [3, 4],
-        [3, 5],
-        [5, 4],
-        [5, 5],
+        [2, 4],
+        [1, 4],
+        [0, 4],
+        [0, 3],
+        [0, 2],
+        [1, 2],
+        [2, 2],
       ],
     },
   }, //game6
   {
     id: 6,
     // game data
-    maxBlocks: 14,
+    maxBlocks: 8,
 
     //game data
     game: {
@@ -269,20 +216,16 @@ const levels = [
       },
       // marker data
       marker: {
-        x: 3,
-        y: 5,
+        x: 4,
+        y: 0,
       },
       // game task
       task: [
         {
           x: 2,
-          y: 2,
-          rightAnswer: 92,
-        },
-        {
-          x: 4,
           y: 4,
-          rightAnswer: 105,
+          rightAnswer: 0,
+          optional: false,
         },
       ],
       // game path
@@ -291,35 +234,27 @@ const levels = [
         [0, 0],
         [1, 0],
         [2, 0],
-        [3, 0],
         [2, 1],
         [2, 2],
-        [2, 3],
         [1, 2],
         [0, 2],
         [0, 3],
         [0, 4],
-        [0, 5],
         [1, 4],
-        [1, 5],
-        [3, 2],
-        [4, 2],
-        [5, 2],
-        [5, 1],
-        [5, 0],
-        [4, 3],
-        [4, 4],
+        [2, 4],
         [3, 4],
-        [3, 5],
-        [5, 4],
-        [5, 5],
+        [3, 3],
+        [4, 3],
+        [4, 2],
+        [4, 1],
+        [4, 0],
       ],
     },
   }, // game7
   {
     id: 7,
     // game data
-    maxBlocks: 2,
+    maxBlocks: 25, //9,
 
     //game data
     game: {
@@ -331,20 +266,22 @@ const levels = [
       },
       // marker data
       marker: {
-        x: 3,
-        y: 5,
+        x: -5,
+        y: 3,
       },
       // game task
       task: [
         {
-          x: 2,
-          y: 2,
-          rightAnswer: 92,
+          x: 1,
+          y: 3,
+          rightAnswer: 1000000,
+          optional: false,
         },
         {
-          x: 4,
+          x: -3,
           y: 4,
-          rightAnswer: 105,
+          rightAnswer: 180,
+          optional: true,
         },
       ],
       // game path
@@ -352,29 +289,33 @@ const levels = [
         // [x, y]
         [0, 0],
         [1, 0],
-        [2, 0],
-        [3, 0],
-        [2, 1],
-        [2, 2],
-        [2, 3],
+        [1, 1],
         [1, 2],
+        [1, 3],
         [0, 2],
         [0, 3],
-        [0, 4],
+        [-1, 3],
+        [-2, 3],
+        [-2, 2],
+        [-2, 1],
+        [-2, 0],
+        [-1, 1],
+        [-2, 1],
+        [-3, 1],
+        [-4, 1],
+        [-5, 1],
+        [-4, 0],
+        [-4, 1],
+        [-4, 2],
+        [-4, 3],
+        [-5, 3],
+        [-3, 3],
+        [-3, 4],
+        [-3, 5],
+        [-4, 5],
+        [-2, 5],
+        [-1, 5],
         [0, 5],
-        [1, 4],
-        [1, 5],
-        [3, 2],
-        [4, 2],
-        [5, 2],
-        [5, 1],
-        [5, 0],
-        [4, 3],
-        [4, 4],
-        [3, 4],
-        [3, 5],
-        [5, 4],
-        [5, 5],
       ],
     },
   },
