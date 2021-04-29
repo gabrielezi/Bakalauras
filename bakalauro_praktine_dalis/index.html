@@ -5,7 +5,9 @@
     <title>Blockly-gamepad demo</title>
 
     <!-- <link rel="icon" href="../docs/icons/favicon/icon.svg"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    
 
     <!--Blockly-->
     <script src="libs/blockly/blockly_compressed.js"></script>
@@ -44,6 +46,9 @@
         
         <div>Taškai:  </div>
         <div id="points">0</div>
+
+        <vr></vr>
+
         <!-- <button id="createMap" onclick="onButtonClick()">Create a map</button> -->
     </header>
 
@@ -161,9 +166,33 @@
                 <button id="forward" class="button blue" style="grid-area: 2">Į priekį</button>
                 <button id="backward" class="button blue" style="grid-area: 3">Atgal</button>
                 <hr>
-                <button id="load" class="button violet" style="grid-area: 1"> &nbsp;Pakrauti&ensp;kodą</button>
+                <button class="button violet" style="grid-area: 1" id="info">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-info-circle" id="svgCornerTR" viewBox="0 0 16 16" class="hoverTask">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                </button>
+                <!-- <button id="load" class="button violet" style="grid-area: 1"> &nbsp;Pakrauti&ensp;kodą</button> -->
             </div>
         </div>
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Padėk žmogėliukui pasiekti savo tikslą!</h2>
+              <p>Tempk blokelius vieną po kito</p>
+              <img src="images/blocks_gif.gif" alt="Put the blocks in order">
+              <p>Atsakymą įrašyk "Atsakymas yra _" blokelyje ir padėk jį toje sekos vietoje, kur manai, jog žmogeliukas užlipa ant užduoties laukelio</p>
+              <img src="images/atsakymas.png" alt="Atsakymo pozicija">
+              <p>Kad paleistum savo sukurtą seką, spausk "Žaisti"</p>
+              <img src="images/buttons.png" alt="Start button">
+              <p>Paleidus žaidimą gali eiti žingsnis po žingsnio per savo seką, sustabdžius veikėją ("Sustabdyti") ir spaudžiant "Į priekį"</p>
+              <img src="images/iPrieki.png" alt="Step by step button">
+              <p>Savo taškus gali matyti viršuje!  	&uarr;</p>
+              <img src="images/taskai.png" alt="Your points">
+            </div>
+          
+          </div>
         <!--workspace div-->
         <div id="blockly-editor">
             <div id="blockly-div"></div>
@@ -243,8 +272,30 @@
 
     <!--link event to buttons-->
     <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
         // link the buttons
-        document.getElementById('load').onclick = () => game.loadCode() + console.clear()
+        // document.getElementById('load').onclick = () => game.loadCode() + console.clear()
+        document.getElementById('info').onclick = () =>{
+            modal.style.display = "block";
+        }
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+
         document.getElementById('level_1').onclick = () => game.loadLevel(levels[id = 0]) + console.clear()
         document.getElementById('level_2').onclick = () => game.loadLevel(levels[id = 1]) + console.clear()
         document.getElementById('level_3').onclick = () => game.loadLevel(levels[id = 2]) + console.clear()
@@ -256,7 +307,10 @@
 
         document.getElementById('forward').onclick = () => gamepad.forward() + gui.removeAnimation()
         document.getElementById('backward').onclick = () => gamepad.backward() + gui.removeAnimation()
-        document.getElementById('play').onclick = () => gamepad.play()
+        document.getElementById('play').onclick = () =>{
+            game.loadCode() + console.clear()
+            gamepad.play()
+        } 
         document.getElementById('pause').onclick = () => gamepad.pause()
     </script>
 

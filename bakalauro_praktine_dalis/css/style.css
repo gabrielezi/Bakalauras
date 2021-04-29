@@ -223,6 +223,10 @@ input:checked + .slider:before {
   box-shadow: 0px 15px 20px rgba(49, 195, 255, 0.4);
 }
 
+.violet {
+  width: 64px;
+}
+
 .violet:hover {
   background-color: #8f00ff;
   box-shadow: 0px 15px 20px rgba(133, 94, 223, 0.4);
@@ -249,4 +253,47 @@ input:checked + .slider:before {
 #points {
   margin-left: 20px;
   text-shadow: 2px 2px 5px green;
+}
+
+/* The Modal (background) */
+.modal {
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-size: 40px; */
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  right: 0;
+  top: 0;
+  width: 61.8%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  height: 80%;
+  overflow-y: scroll;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
