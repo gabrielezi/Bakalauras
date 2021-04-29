@@ -26,14 +26,14 @@
         <span class="title">
             <div>
                 <a href="https://developers.google.com/blockly/">Blockly</a> 
-                <a> Math Maze</a>
+                <a> Užduočių labirintas</a>
                 <!-- <a style="font-size: 80%;">&</a>  -->
                 <!-- <a href="https://github.com/Paol-imi/blockly-gamepad">blockly-gamepad</a>: Maze -->
             </div>
         </span>
         <vr></vr>
         <!--level buttons-->
-        <span class="switch_span">lygiai</span>
+        <span class="switch_span">Lygiai</span>
         <button class="button level" id="level_1">1</button>
         <button class="button level" id="level_2">2</button>
         <button class="button level" id="level_3">3</button>
@@ -180,15 +180,17 @@
             <div class="modal-content">
               <span class="close">&times;</span>
               <h2>Padėk žmogėliukui pasiekti savo tikslą!</h2>
-              <p>Tempk blokelius vieną po kito</p>
+              <p>Tempk blokelius vieną po kito:</p>
               <img src="images/blocks_gif.gif" alt="Put the blocks in order">
-              <p>Atsakymą įrašyk "Atsakymas yra _" blokelyje ir padėk jį toje sekos vietoje, kur manai, jog žmogeliukas užlipa ant užduoties laukelio</p>
+              <p>Atsakymą įrašyk "Atsakymas yra _" blokelyje ir padėk jį toje sekos vietoje, kur manai, jog žmogeliukas užlipa ant užduoties laukelio:</p>
               <img src="images/atsakymas.png" alt="Atsakymo pozicija">
-              <p>Kad paleistum savo sukurtą seką, spausk "Žaisti"</p>
+              <p>Pamačius klaustukus žemėlapyje užvilk ant jų pelę - pamatysi klausimą:</p>
+              <img src="images/question.gif" alt="Question">
+              <p>Kad paleistum savo sukurtą seką, spausk "Žaisti":</p>
               <img src="images/buttons.png" alt="Start button">
-              <p>Paleidus žaidimą gali eiti žingsnis po žingsnio per savo seką, sustabdžius veikėją ("Sustabdyti") ir spaudžiant "Į priekį"</p>
+              <p>Paleidus žaidimą gali eiti žingsnis po žingsnio per savo seką, sustabdžius veikėją ("Sustabdyti") ir spaudžiant "Į priekį":</p>
               <img src="images/iPrieki.png" alt="Step by step button">
-              <p>Savo taškus gali matyti viršuje!  	&uarr;</p>
+              <p>Savo taškus gali matyti viršuje!  	&uarr;:</p>
               <img src="images/taskai.png" alt="Your points">
             </div>
           
@@ -291,10 +293,12 @@
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
-        }
+        var wid = window.innerWidth;
+        document.getElementById("myModal").style.width = wid-639;
 
         document.getElementById('level_1').onclick = () => game.loadLevel(levels[id = 0]) + console.clear()
         document.getElementById('level_2').onclick = () => game.loadLevel(levels[id = 1]) + console.clear()
