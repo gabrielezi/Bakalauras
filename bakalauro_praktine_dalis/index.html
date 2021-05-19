@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <title>Blockly-gamepad demo</title>
 
-    <!-- <link rel="icon" href="../docs/icons/favicon/icon.svg"> -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     
 
@@ -15,6 +13,7 @@
     <script src="libs/blockly/javascript_compressed.js"></script>
     <script src="libs/blockly/en.js"></script>
     <script src="js/customBlocks.js"></script>
+    
 
     <!--blockly-gamepad-->
     <script src="libs/gamepad/gamepad.min.js"></script>
@@ -27,8 +26,6 @@
             <div>
                 <a href="https://developers.google.com/blockly/">Blockly</a> 
                 <a> Užduočių labirintas</a>
-                <!-- <a style="font-size: 80%;">&</a>  -->
-                <!-- <a href="https://github.com/Paol-imi/blockly-gamepad">blockly-gamepad</a>: Maze -->
             </div>
         </span>
         <vr></vr>
@@ -42,14 +39,12 @@
         <button class="button level" id="level_6">6</button>
         <button class="button level" id="level_7">7</button>
         <button class="button level" id="level_8">8</button>
+        <button class="button level" id="level_9">...</button>
         <vr></vr>
         
         <div>Taškai:  </div>
         <div id="points">0</div>
 
-        <vr></vr>
-
-        <!-- <button id="createMap" onclick="onButtonClick()">Create a map</button> -->
     </header>
 
     <main>
@@ -156,8 +151,36 @@
                 <image id="pegman8" xlink:href="images/pegman.png" height="52" width="1029"
                     clip-path="url(#8pegmanClipPath)" x="-145" y="291" transform="rotate(0, 0, 0)"></image>
             </svg>
+            <!--game 9------------------------------------------------------------------------------------------------------->
+            <canvas style="display: none" ></canvas>
+            
+                <svg xmlns="http://www.w3.org/2000/svg"  style="display: none" version="1.1"  id="9" width="360px"
+                height="360px" viewBox="0 0 360 360">
+                    <image id="randomMazeImg" class="maze" x="0" y="0"  width="360" height="360"></image>
+                    <defs >
+                        <pattern class="moveGrid" x="12" y="12" id="smallGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+                            <path d="M 48 0 L 0 0 0 48" fill="none" stroke="gray" stroke-width="0.5" />
+                        </pattern>
+                        <pattern class="moveGrid"  id="grid" width="78" height="78" patternUnits="userSpaceOnUse">
+                            <rect width="78" height="78" fill="url(#smallGrid)" />
+                            <path d="M 78 0 L 0 0 0 78" fill="none" stroke="gray" stroke-width="1" />
+                        </pattern>
+                    </defs>
+                
+                    <rect width="100%" height="100%" fill="url(#smallGrid)" />
+                    <image id="finish9" xlink:href="images/marker.png" height="34" width="20" x="75" y="55"></image> <!--x="27" y="15" ----x="75" y="55"---->
+                    <text id="task9" x="75" y="170" fill="red" font-weight="bold" class="hoverTask">??</text><!--x="25" y="40"-- x="75" y="80" s-->
+                    <text id="task9Question" class="hide" x="140" y="160">2+2</text> 
+                    <clipPath id="9pegmanClipPath">
+                        <rect id="clipRect9" width="49" height="52" x="51" y="291"></rect>
+                    </clipPath>
+                    <image id="pegman9" xlink:href="images/pegman.png" height="52" width="1029"
+                        clip-path="url(#9pegmanClipPath)" x="-145" y="291" transform="rotate(0, 0, 0)"></image>
+                        
+                </svg>
+                
             <!--capacity div-->
-            <div id="capacity" style="display: none;">You have <span id="capacityNumber">10</span> blocks left.</div>
+            <div id="capacity" style="display: none;">Liko blokelių: <span id="capacityNumber">10</span></div>
             <!--buttons-->
             <div class="buttons">
                 <button id="play" class="button green" style="grid-area: 1">Žaisti</button>
@@ -172,26 +195,65 @@
                         <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                     </svg>
                 </button>
-                <!-- <button id="load" class="button violet" style="grid-area: 1"> &nbsp;Pakrauti&ensp;kodą</button> -->
+                <hr>
+                <div id="newLevelDiv" style="display: none;font-family: sans-serif;">
+                    <form style="margin-top: 5px;" id="formBlocks">
+                    Blokelių skaičius:
+                    <select id="selectForm">
+                      <option id="two">2</option>
+                      <option id="three">3</option>
+                      <option id="four">4</option>
+                      <option id="five">5</option>
+                      <option id="six">6</option>
+                      <option id="seven" selected>7</option>
+                      <option id="eight">8</option>
+                      <option id="nine">9</option>
+                    </select>
+                  </form>
+                <button id="randomButton" class="button blue" style=" background-color: rgb(168, 209, 177); ">NAUJAS LYGIS</button>
+                </div>
             </div>
+            
+            
         </div>
+        
         <div id="myModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
               <span class="close">&times;</span>
               <h2>Padėk žmogėliukui pasiekti savo tikslą!</h2>
-              <p>Tempk blokelius vieną po kito:</p>
-              <img src="images/blocks_gif.gif" alt="Put the blocks in order">
-              <p>Atsakymą įrašyk "Atsakymas yra _" blokelyje ir padėk jį toje sekos vietoje, kur manai, jog žmogeliukas užlipa ant užduoties laukelio:</p>
-              <img src="images/atsakymas.png" alt="Atsakymo pozicija">
-              <p>Pamačius klaustukus žemėlapyje užvilk ant jų pelę - pamatysi klausimą:</p>
-              <img src="images/question.gif" alt="Question">
-              <p>Kad paleistum savo sukurtą seką, spausk "Žaisti":</p>
-              <img src="images/buttons.png" alt="Start button">
-              <p>Paleidus žaidimą gali eiti žingsnis po žingsnio per savo seką, sustabdžius veikėją ("Sustabdyti") ir spaudžiant "Į priekį":</p>
-              <img src="images/iPrieki.png" alt="Step by step button">
-              <p>Savo taškus gali matyti viršuje!  	&uarr;:</p>
-              <img src="images/taskai.png" alt="Your points">
+              <ul>
+                <li>
+                    <p>Tempk blokelius vieną po kito:</p>
+                    <img src="images/blocks_gif.gif" alt="Put the blocks in order">
+                </li>
+                <li>
+                    <p>Atsakymą įrašyk "Atsakymas yra _" blokelyje ir padėk jį toje sekos vietoje, kur manai, jog žmogeliukas užlipa ant užduoties laukelio:</p>
+                    <img src="images/atsakymas.png" alt="Atsakymo pozicija">
+                </li>
+                <li>
+                    <p>Pamačius klaustukus žemėlapyje užvilk ant jų pelę - pamatysi klausimą:</p>
+                    <img src="images/question.gif" alt="Question">
+                </li>
+                <li>
+                    <p>Kad paleistum savo sukurtą seką, spausk "Žaisti":</p>
+                    <img src="images/buttons.png" alt="Start button">
+                </li>
+                <li>
+                    <p>Paleidus žaidimą gali eiti žingsnis po žingsnio per savo seką, sustabdžius veikėją ("Sustabdyti") ir spaudžiant "Į priekį":</p>
+                    <img src="images/iPrieki.png" alt="Step by step button">
+                </li>
+                <li>
+                    <p>Savo taškus gali matyti viršuje!  	&uarr;:</p>
+                    <img src="images/taskai.png" alt="Your points">
+                </li>
+                <li>
+                    <p>Lygyje, pažymėtame daugtaškiu galima generuoti naujus labirintus ir užduotis pagal pasirinktą blokelių skaičių</p>
+                    <img src="images/randomLevel.png" alt="Random Level Button">
+                    <p>Paspaudus ant šio mygtuko pasirodo tuščias žemėlapis, o sugeneruoti labirintą galima apačioje pasirinkus blokelių skaičių ir paspaudus "Naujas lygis"</p>
+                    <img src="images/generateLevel.png" alt="Generate new level">
+                </li>
+              </ul>
             </div>
           
           </div>
@@ -207,6 +269,7 @@
                 </block>
                 <block type="repeat_until"></block>
                 <block type="if_path"></block>
+                <block type="if_path_only_answer"></block>
                 <block type="if_else_path"></block>
                 <block type="answerBlock"></block>
             </xml>
@@ -229,11 +292,6 @@
         </div>
     </main>
 
-    <script>
-        function onButtonClick(){
-            window.location.href = "mapCreation.html";
-        }
-    </script>
     <!--load global parameters-->
     <script>
         // get parameters in url
@@ -271,6 +329,10 @@
     <script src="js/gui.js"></script>
     <script src="js/game.js"></script>
     <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.1/underscore-umd-min.js"></script>
+    <script src="js/blocks.js"></script>
+    <script src="js/maze.js"></script>
+    <script src="js/shortestPath.js"></script>
 
     <!--link event to buttons-->
     <script>
@@ -308,6 +370,10 @@
         document.getElementById('level_6').onclick = () => game.loadLevel(levels[id = 5]) + console.clear()
         document.getElementById('level_7').onclick = () => game.loadLevel(levels[id = 6]) + console.clear()
         document.getElementById('level_8').onclick = () => game.loadLevel(levels[id = 7]) + console.clear()
+        document.getElementById('level_9').onclick = () =>{
+            game.loadLevel(levels[id = 8]) + console.clear();
+            document.getElementById('newLevelDiv').style.display = "block";
+        }
 
         document.getElementById('forward').onclick = () => gamepad.forward() + gui.removeAnimation()
         document.getElementById('backward').onclick = () => gamepad.backward() + gui.removeAnimation()
@@ -317,6 +383,7 @@
         } 
         document.getElementById('pause').onclick = () => gamepad.pause()
     </script>
+    
 
     <!--remaining block-->
     <script>
@@ -332,6 +399,7 @@
                 document.getElementById('capacity').style.display = 'none'
             }
         })
+        
     </script>
 
     <!--navigation-->
@@ -357,10 +425,7 @@
         // show capacity div
         if (id == 2) document.getElementById('capacity').style.display = 'block'
     </script>
-   
-    <!--github link-->
-    <!-- <script src="../libs/github/logo.js"></script>
-    <script>GitHub.inject(document.body)</script> -->
+
 </body>
 
 </html>

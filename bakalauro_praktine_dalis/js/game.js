@@ -65,6 +65,8 @@ class Game {
 
   // load a level
   loadLevel(level) {
+    if (level != levels[(id = 8)])
+      document.getElementById("newLevelDiv").style.display = "none";
     // update maxBlocks setting
     if ("maxBlocks" in level)
       // if the start block is used add 1
@@ -117,9 +119,8 @@ class Game {
   //----------------------------------------------
   onTask(request, right) {
     if (typeof this.usersAnswer[this.wasOnTask.length - 1].answer === "string")
-      this.usersAnswer[this.wasOnTask.length - 1].answer = this.usersAnswer[
-        this.wasOnTask.length - 1
-      ].answer.toLowerCase();
+      this.usersAnswer[this.wasOnTask.length - 1].answer =
+        this.usersAnswer[this.wasOnTask.length - 1].answer.toLowerCase();
     if (this.usersAnswer[this.wasOnTask.length - 1].answer == right) {
       this.usersAnswer[this.wasOnTask.length - 1].done = true;
       console.log("the answer is correct");
@@ -138,20 +139,23 @@ class Game {
     let pegman = this.gamepad.level.pegman,
       marker = this.gamepad.level.marker,
       taskPlace = this.gamepad.level.task;
-    console.log(request.method);
 
+    if (request.method == Blockly.Gamepad["STATES"]["STARTED"]) {
+      this.usersAnswer = [];
+    }
     // if the game is finished show win/lose alert
     if (request.method == Blockly.Gamepad["STATES"]["FINISHED"] && !back) {
       if (pegman.x == marker.x && pegman.y == marker.y) {
-        console.log(taskPlace.filter((obj) => obj.optional === false).length);
-        console.log(this.usersAnswer.length);
         if (
           this.usersAnswer.length >=
           taskPlace.filter((obj) => obj.optional === false).length
         ) {
+          var addPoints = this.usersAnswer.length;
+          if (addPoints == 0) {
+            addPoints = 1;
+          }
           document.getElementById("points").innerHTML =
-            parseInt(document.getElementById("points").textContent) +
-            this.usersAnswer.length;
+            parseInt(document.getElementById("points").textContent) + addPoints;
           alert("Puiku, laimėjai!");
         } else alert("Pralaimėjai! Nėra pakankamai atsakymų");
       } else alert("Pralaimėjai!");
@@ -178,13 +182,6 @@ class Game {
         this.wasOnTask.push({ x: pegmanX, y: pegmanY });
       }
     }
-    // if (
-    //   this.wasOnTask.length != 0 &&
-    //   this.usersAnswer[this.wasOnTask.length - 1] == undefined
-    // ) {
-    //   request.method = "FINISHED";
-    //   alert("you lost!");
-    // }
     if (
       request.method == "ANSWER" &&
       taskPlace.filter((e) => e.x === pegman.x && e.y === pegman.y).length == 0

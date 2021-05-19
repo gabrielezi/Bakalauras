@@ -75,6 +75,8 @@ class Gui {
       this.id == 7 ? "block" : "none";
     document.getElementById("8").style.display =
       this.id == 8 ? "block" : "none";
+    document.getElementById("9").style.display =
+      this.id == 9 ? "block" : "none";
   }
 
   // remove animation
@@ -219,7 +221,6 @@ class GUI {
           this.move(!back, direction);
           // await some time
           await this.someTime();
-          // console.log("alio");
         }
       } else {
         // first half of the crush animation
@@ -340,6 +341,16 @@ const guiData = {
       rect: {
         x: 51,
         y: 291,
+      },
+    },
+    {
+      pegman: {
+        x: -45,
+        y: 141,
+      },
+      rect: {
+        x: 151,
+        y: 141,
       },
     },
   ],

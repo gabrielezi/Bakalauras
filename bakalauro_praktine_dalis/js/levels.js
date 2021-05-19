@@ -41,6 +41,14 @@ const levels = [
   //level 2
   {
     id: 2,
+    blocks: [
+      "move",
+      "turn",
+      "answerBlock",
+      "repeat_until",
+      "if_path",
+      "if_else_path",
+    ],
     // maximum blocks allowed
     maxBlocks: 2,
     game: {
@@ -71,6 +79,14 @@ const levels = [
   }, //game3
   {
     id: 3,
+    blocks: [
+      "move",
+      "turn",
+      "answerBlock",
+      "repeat_until",
+      "if_path",
+      "if_else_path",
+    ],
     // game data
     maxBlocks: 6,
     //game data
@@ -111,6 +127,14 @@ const levels = [
   }, //game4
   {
     id: 4,
+    blocks: [
+      "move",
+      "turn",
+      "answerBlock",
+      "repeat_until",
+      "if_path",
+      "if_else_path",
+    ],
     // game data
     maxBlocks: 7,
 
@@ -203,6 +227,14 @@ const levels = [
   }, //game6
   {
     id: 6,
+    blocks: [
+      "move",
+      "turn",
+      "answerBlock",
+      "repeat_until",
+      "if_path",
+      "if_else_path",
+    ],
     // game data
     maxBlocks: 8,
 
@@ -253,6 +285,14 @@ const levels = [
   }, // game7
   {
     id: 7,
+    blocks: [
+      "move",
+      "turn",
+      "answerBlock",
+      "repeat_until",
+      "if_path",
+      "if_else_path",
+    ],
     // game data
     maxBlocks: 25, //9,
 
@@ -323,6 +363,14 @@ const levels = [
   // level 8
   {
     id: 8,
+    blocks: [
+      "move",
+      "turn",
+      "answerBlock",
+      "repeat_until",
+      "if_path",
+      "if_else_path",
+    ],
     // game data
     maxBlocks: 14,
 
@@ -345,11 +393,13 @@ const levels = [
           x: 2,
           y: 2,
           rightAnswer: 92,
+          optional: false,
         },
         {
           x: 4,
           y: 4,
           rightAnswer: 105,
+          optional: false,
         },
       ],
       // game path
@@ -380,6 +430,47 @@ const levels = [
         [3, 5],
         [5, 4],
         [5, 5],
+      ],
+    },
+  },
+  // level 9
+  {
+    id: 9,
+    blocks: [
+      "move",
+      "turn",
+      "answerBlock",
+      "repeat_until",
+      "if_path_only_answer",
+    ],
+    // game data
+    maxBlocks: 9,
+
+    //game data
+    game: {
+      // pegman data
+      pegman: {
+        direction: 1,
+        x: 0,
+        y: 0,
+      },
+      // marker data
+      marker: {
+        x: 3,
+        y: 5,
+      },
+      // game task
+      task: [
+        {
+          x: 2,
+          y: 2,
+          rightAnswer: 92,
+        },
+      ],
+      // game path
+      path: [
+        // [x, y]
+        [0, 0],
       ],
     },
   },

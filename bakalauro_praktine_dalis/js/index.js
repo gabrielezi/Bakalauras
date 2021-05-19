@@ -39,6 +39,45 @@ Blockly.Gamepad.init({
         colour: 120,
       },
     },
+    if_path_only_answer: {
+      // the request will be { method: 'PATH', args: [ Blockly.Gamepad['INPUTS']['...some direction'] ]}
+      method: "PATH",
+      args: [
+        {
+          field: "DIRECTION", // the field name
+          get: parseInt, // return the number instead of the string
+        },
+      ],
+      statements: ["DO"],
+      template: Blockly.Gamepad["TEMPLATES"]["IF"],
+      json: {
+        message0: "jei kelias %1 %2 tuomet %3", //"if path %1 %2 do %3",
+        args0: [
+          {
+            type: "field_dropdown",
+            name: "DIRECTION", // the field name
+            options: [
+              // args[0] will be one of these options
+              ["turi užduotį", Blockly.Gamepad["INPUTS"]["TASK"]],
+              // ["ahead", Blockly.Gamepad["INPUTS"]["FORWARD"]],
+              // ["to the right ↻", Blockly.Gamepad["INPUTS"]["RIGHT"]],
+              // ["to the left ↺", Blockly.Gamepad["INPUTS"]["LEFT"]],
+              // ["has a task", Blockly.Gamepad["INPUTS"]["TASK"]],
+            ],
+          },
+          {
+            type: "input_dummy",
+          },
+          {
+            type: "input_statement",
+            name: "DO",
+          },
+        ],
+        previousStatement: null,
+        nextStatement: null,
+        colour: 210,
+      },
+    },
     if_path: {
       // the request will be { method: 'PATH', args: [ Blockly.Gamepad['INPUTS']['...some direction'] ]}
       method: "PATH",
